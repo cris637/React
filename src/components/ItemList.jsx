@@ -1,18 +1,16 @@
-import React from 'react';
-import Item from './Item'
+// Importar la data de ropa
+import data from '../data/ropaData.js';
+import Item from './Item.jsx';
 
-function ItemList ( { ropa } ) {
-
-return (
-<div>
-{ ropa.map( ( ropaIterada ) => 
-    <Item key={ropaIterada.id} ropa={ropaIterada}/>
-
-)}
-
-</div>
-
-)
+const ItemList = () => {
+    
+    return (
+        <>
+            {data.map(item => (
+                <Item key={item.id} item={item} />
+            ))}
+        </>
+    )
 }
 
-export default ItemList
+export default ItemList;
