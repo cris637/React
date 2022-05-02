@@ -1,26 +1,33 @@
 const ropaData = [
   {
     id: 1,
-    tittle: "Camisa Negra",
-    precio: 2000
+    title: "Camisa Negra",
+    precio: 2700,
+    img: "src/assets/productos/camisaroja.webp"
+
   },
   {
     id: 2,
-    tittle: "Camisa Roja",
-    precio: 2000
+    title: "Camisa Roja",
+    precio: 2500,
+    img: "src/assets/productos/camisaroja.webp"
 
   },
   {
     id: 3,
-    tittle: "Camisa Blanca",
-    precio: 2000
-    
+    title: "Camisa Blanca",
+    precio: 2600,
+    img: "src/assets/productos/camisaroja.webp"
+
 
   },
   {
     id: 4,
-    tittle: "Camisa Beige",
-    precio: 2000
+    title: "Camisa Beige",
+    precio: 2800,
+    img: "src/assets/productos/camisaroja.webp"
+
   },
 ];
+
 export default ropaData;
