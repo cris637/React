@@ -26,7 +26,6 @@ const Item = ({ ropa }) => {
         <>
             <div className="item" style={cardStyle}>
                 <div className="item-info">
-                    <img src={ropa.img} alt={ropa.title} />
                     <h3>{ropa.title}</h3>
                     <p>${ropa.precio}</p>
                 </div>
