@@ -1,6 +1,9 @@
 import logo from  '../assets/img/logo.png'
 import CartWidget from './CartWidget';
 import '../styles/NavBar.css'
+import { Link } from 'react-router-dom';
+
+
 function NavBar() {
 
     return (
@@ -8,10 +11,10 @@ function NavBar() {
         <nav>
             <img src={logo} alt="Logotienda" />
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Galeria</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><Link to="">Inicio</Link></li>
+                <li><Link to="/talles/s">Talle S</Link></li>
+                <li><Link to="/talles/m">Talle M</Link></li>
+                <li><Link to="/talles/l">Talle L</Link></li>
                 
                 <li><CartWidget/></li>
             </ul>

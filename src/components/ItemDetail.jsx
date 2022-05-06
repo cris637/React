@@ -1,11 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 
 
-const Item = ({ ropa }) => {
+const ItemDetail = ({ prenda }) => {
 
-    const urlDetail = `/producto/${ropa.id}`;
-    
     // estilos al item
     const cardStyle = {
         width: '100px',
@@ -32,14 +29,13 @@ const Item = ({ ropa }) => {
         <>
             <div className="item" style={cardStyle}>
                 <div className="item-info">
-                    <img src={ropa.img} alt="ropa.title" />
-                    <h3>{ropa.title}</h3>
-                    <p>${ropa.precio}</p>
-                    <Link to={urlDetail}>Ver mas</Link>
+                <img src={prenda.img} alt="prenda.title" />
+                    <h3>{prenda.title}</h3>
+                    <p>${prenda.precio}</p>
                 </div>
             </div>
         </>
     )
 }
 
-export default Item;
+export default ItemDetail;
