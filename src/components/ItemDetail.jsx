@@ -33,6 +33,7 @@ const ItemDetail = ({ prenda }) => {
                 <div className="item-info">
                 <img style={cardImg} src={prenda.img} alt="prenda.title" />
                     <h3>{prenda.title}</h3>
+                    <p>Talle {prenda.talle} </p>
                     <p>${prenda.precio}</p>
                 </div>
             </div>
