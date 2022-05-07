@@ -5,8 +5,6 @@ const ItemDetail = ({ prenda }) => {
 
     // estilos al item
     const cardStyle = {
-        width: '100px',
-        height: '100px',
         backgroundColor: '#f4f4f4',
         border: '1px solid #e1e1e1',
         margin: '0 10px 10px 0',
@@ -24,12 +22,16 @@ const ItemDetail = ({ prenda }) => {
         letterSpacing: '1px',
         borderRadius: '3px',
     }
+    
+    const cardImg = {
+        width: '600px',
+    }
 
     return (
         <>
             <div className="item" style={cardStyle}>
                 <div className="item-info">
-                <img src={prenda.img} alt="prenda.title" />
+                <img style={cardImg} src={prenda.img} alt="prenda.title" />
                     <h3>{prenda.title}</h3>
                     <p>${prenda.precio}</p>
                 </div>

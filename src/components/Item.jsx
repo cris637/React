@@ -8,11 +8,9 @@ const Item = ({ ropa }) => {
     
     // estilos al item
     const cardStyle = {
-        width: '100px',
-        height: '100px',
         backgroundColor: '#f4f4f4',
         border: '1px solid #e1e1e1',
-        margin: '0 10px 10px 0',
+        margin: '10px 10px 10px 0',
         display: 'inline-block',
         verticalAlign: 'top',
         position: 'relative',
@@ -26,17 +24,19 @@ const Item = ({ ropa }) => {
         textTransform: 'uppercase',
         letterSpacing: '1px',
         borderRadius: '3px',
+        
+    }
+    const cardImg = {
+        width: '300px',
     }
 
     return (
         <>
             <div className="item" style={cardStyle}>
-                <div className="item-info">
-                    <img src={ropa.img} alt="ropa.title" />
+                    <img style={cardImg} src={ropa.img} alt="ropa.title" />
                     <h3>{ropa.title}</h3>
                     <p>${ropa.precio}</p>
                     <Link to={urlDetail}>Ver mas</Link>
-                </div>
             </div>
         </>
     )

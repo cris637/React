@@ -13,7 +13,7 @@ function App() {
           {/* <ItemListContainer />
           <ItemDetailContainer titulo="Detalle de la prenda" /> */}
 
-          <Route path="/" element={<ItemListContainer titulo="Mi app"/>} />
+          <Route path="/" element={<ItemListContainer titulo="Productos"/>} />
 
           <Route path="/talles/:talleid" element={<ItemListContainer titulo="Talles"/>} />
 
