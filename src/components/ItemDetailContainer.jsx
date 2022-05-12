@@ -15,6 +15,10 @@ function getDataFromDB(idRequested) {
 }
 
 function ItemDetailContainer({ titulo }) {
+ 
+  
+
+
   const { id } = useParams();
   let [prenda, setPrenda] = useState({});
 
@@ -27,7 +31,7 @@ function ItemDetailContainer({ titulo }) {
 return (
   <div>
     <h1> {titulo} </h1>
-  <ItemDetail prenda={prenda} />
+  {<ItemDetail prenda={prenda} /> }
   </div>
 
   )

@@ -17,10 +17,11 @@ function getDataFromDB(talleid) {
 
 function ItemlistContainer({ titulo }) {
   
+  
+
   const {talleid} = useParams();
 
   let [ropa, setRopa] = useState([]);
-  console.log("render");
 
   useEffect(() => {
     getDataFromDB(talleid).then( (data) => {
