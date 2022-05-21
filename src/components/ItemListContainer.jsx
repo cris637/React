@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import ropaData from  '../data/ropaData';
 import Itemlist from './ItemList';
 import { useParams } from 'react-router-dom';
+import { getAllItems as getDataFromDB, getItemsByTalle } from '../data/index.js'
 
-function getDataFromDB(talleid) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (talleid === undefined) resolve(ropaData);
-      const ropaRequested = ropaData.filter ( (ropa)=>{
-        return ropa.talle === talleid;
-      })
-      resolve(ropaRequested);
-    }, 500);
-  });
-}
+
+// function getDataFromDB(talleid) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (talleid === undefined) resolve(ropaData);
+//       const ropaRequested = ropaData.filter ( (ropa)=>{
+//         return ropa.talle === talleid;
+//       })
+//       resolve(ropaRequested);
+//     }, 500);
+//   });
+// }
+
+
+
+
+
+
+
 
 function ItemlistContainer({ titulo }) {
   
@@ -24,10 +32,20 @@ function ItemlistContainer({ titulo }) {
   let [ropa, setRopa] = useState([]);
 
   useEffect(() => {
+    if (talleid === undefined) {
+      
+    
     getDataFromDB(talleid).then( (data) => {
       setRopa(data);
   })
- }, [talleid]);
+}
+else {
+  getItemsByTalle(talleid).then((data) => {
+    setRopa(data);
+
+});
+ }
+ } ,[talleid]);
 
 return (
   <div>
