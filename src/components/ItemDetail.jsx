@@ -2,6 +2,7 @@ import React from "react";
 import ItemCount from "./ItemCount";
 import { useState } from "react";
 import useCartContext from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ prenda }) => {
     const [isInCart, setisInCart] = useState(false);
@@ -12,8 +13,13 @@ const ItemDetail = ({ prenda }) => {
         addToCart(prenda, count)
         console.log("agregado al cart", prenda, count);
 
+      };
+  
+      if (!prenda) {
+        return <h3>Cargando...</h3>
       }
 
+      else {
   // estilos al item
   const cardStyle = {
     backgroundColor: "#f4f4f4",
@@ -47,7 +53,7 @@ const ItemDetail = ({ prenda }) => {
           <p>Talle {prenda.talle} </p>
           <p>${prenda.precio}</p>
           { isInCart?
-                    <button>Ver carrito</button>
+                    <Link to="/cart">Ver carrito</Link>
                     :
                     <ItemCount onAdd={onAdd} stock={prenda.stock} initial={1} />
         }
@@ -56,6 +62,7 @@ const ItemDetail = ({ prenda }) => {
       </div>
     </>
   );
+   }
 };
 
 export default ItemDetail;

@@ -9,14 +9,13 @@ export function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item, cant) => {
-    if (isInCart()) {
+    if (isInCart(item.id)) {
       const newCart = cart.map((cartItem) => {
         if (cartItem.id === item.id) {
-            const copyItem = {...cartItem}
-            copyItem.cant += cant;
-            return copyItem;
-        }
-        else return cartItem;
+          const copyItem = { ...cartItem };
+          copyItem.cant += cant;
+          return copyItem;
+        } else return cartItem;
       });
       setCart(newCart);
     } else {
@@ -33,17 +32,36 @@ export function CartContextProvider({ children }) {
     setCart(cartFilter);
   };
 
-const cartClear = ()=> {
+  const clearCart = () => {
     setCart([]);
-}
-
-  const isInCart = () => {
-    return false;
   };
 
+  const isInCart = (id) => {
+    return cart.some((itemCart) => itemCart.id === id);
+  };
+
+  const getItemFromCart = (id) => {
+    return cart.find((itemCart) => itemCart.id === id);
+  };
+
+  const cantInCart = () => {
+    let ctotal = 0;
+    cart.forEach( itemCart => ctotal += itemCart.cant);
+    return ctotal;
+  };
+
+  const calcPrice = () => {
+    let pTotal = 0;
+    cart.forEach(itemCart => pTotal += (itemCart.precio * itemCart.cant) )
+    return pTotal;
+  }
+  
+  
   const contextFunction = () => console.log("Contexto Listo");
   return (
-    <Provider value={{ contextFunction, cart, addToCart, removeFromCart, cartClear }}>
+    <Provider
+      value={{ contextFunction,getItemFromCart , cart, addToCart, removeFromCart, clearCart, cantInCart, calcPrice }}
+    >
       {children}
     </Provider>
   );

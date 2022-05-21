@@ -20,7 +20,7 @@ function ItemDetailContainer({ titulo }) {
 
 
   const { id } = useParams();
-  let [prenda, setPrenda] = useState({});
+  let [prenda, setPrenda] = useState();
 
   useEffect(() => {
     getDataFromDB(id).then( (data) => {
