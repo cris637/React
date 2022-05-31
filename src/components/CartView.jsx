@@ -1,8 +1,35 @@
 import React from 'react'
 import useCartContext from '../context/CartContext'
+import { createBuyOrder } from '../data/index'
 
 function CartView() {
 const { cart, removeFromCart, clearCart, calcPrice } = useCartContext();
+
+function handleBuy() {
+
+  const itemsToBuy = cart.map((item) => ({
+    title: item.title,
+    cant: item.cant,
+    price: item.precio,
+    id: item.id,
+  }
+  
+  ))
+
+  const buyOrder = {
+    buyer: {
+      name: 'Cristián',
+      phone: '3865394041',
+      email: 'cristianabregu1@gmail.com',
+    },
+    items: itemsToBuy,
+    total: calcPrice(),
+  }
+  
+  createBuyOrder(buyOrder);
+
+}
+
 
 if (cart.lenght === 0) {
   return <div>
@@ -23,6 +50,7 @@ else {
 
             <h2>Total de compra: ${calcPrice()} </h2>
              <button onClick={clearCart}>Vaciar Carrito</button>
+             <button onClick={handleBuy}>Comprar</button>
 
     </div>
 }

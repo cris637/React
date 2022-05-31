@@ -8,6 +8,9 @@ import {
   where,
   collection,
   getDocs,
+  Timestamp,
+  addDoc,
+
 } from "firebase/firestore/lite";
 
 // Your web app's Firebase configuration
@@ -60,4 +63,18 @@ export async function getItem(id) {
   const ropaSnap = await getDoc(ropaRef);
 
   return { ...ropaSnap.data(), id: ropaSnap.id };
+}
+
+export async function createBuyOrder(orderData) {
+  
+  const buyTimestamp = Timestamp.now();
+  const orderWithDate = {
+    ...orderData,
+    date: buyTimestamp
+  };
+
+   const miColection = collection(firestoreDB, "buyOrders")
+   const orderDoc = await addDoc(miColection, orderWithDate)
+  console.log("Orden lista con ID:", orderDoc.id);
+  
 }
