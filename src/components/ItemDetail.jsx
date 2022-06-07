@@ -41,7 +41,7 @@ const ItemDetail = ({ prenda }) => {
   };
 
   const cardImg = {
-    width: "600px",
+    width: "300px",
   };
 
   return (
@@ -53,7 +53,7 @@ const ItemDetail = ({ prenda }) => {
           <p>Talle {prenda.talle} </p>
           <p>${prenda.precio}</p>
           { isInCart?
-                    <Link to="/cart">Ver carrito</Link>
+                    <Link className="btn btn-dark" to="/cart">Ver carrito</Link>
                     :
                     <ItemCount onAdd={onAdd} stock={prenda.stock} initial={1} />
         }

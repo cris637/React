@@ -40,17 +40,17 @@ if (cart.lenght === 0) {
 else {
   return <div> {cart.map( itemCart => {
       return <div key={itemCart.id}>
-        <h2> {itemCart.title} </h2>
-        <h2> {itemCart.cant} </h2>
-        <h2> {itemCart.cant * itemCart.precio}</h2>
-        <button onClick={()=>removeFromCart(itemCart.id)}>X</button>
+        <h4>Producto: {itemCart.title} </h4>
+        <h4>Cantidad: {itemCart.cant} </h4>
+        <h4>Precio: {itemCart.cant * itemCart.precio}</h4>
+        <button className="btn btn-danger" onClick={()=>removeFromCart(itemCart.id)}>X</button>
         </div>
       
      })}
 
             <h2>Total de compra: ${calcPrice()} </h2>
-             <button onClick={clearCart}>Vaciar Carrito</button>
-             <button onClick={handleBuy}>Comprar</button>
+             <button className="btn btn-danger" onClick={clearCart}>Vaciar Carrito</button>
+             <button className="btn btn-dark" onClick={handleBuy}>Comprar</button>
 
     </div>
 }

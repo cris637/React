@@ -36,7 +36,7 @@ const Item = ({ ropa }) => {
                     <img style={cardImg} src={ropa.img} alt="ropa.title" />
                     <h3>{ropa.title}</h3>
                     <p>${ropa.precio}</p>
-                    <Link to={urlDetail}>Ver mas</Link>
+                    <Link className="btn btn-dark" to={urlDetail}>Ver producto</Link>
             </div>
         </>
     )
