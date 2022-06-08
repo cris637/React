@@ -27,6 +27,7 @@ function handleBuy() {
   }
   
   createBuyOrder(buyOrder);
+  clearCart();
 
 }
 
