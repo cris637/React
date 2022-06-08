@@ -27,8 +27,10 @@ function handleBuy() {
   }
   
   createBuyOrder(buyOrder);
+  clearCart();
 
 }
+
 
 
 if (cart.lenght === 0) {
@@ -38,12 +40,26 @@ if (cart.lenght === 0) {
   </div>
 }
 else {
-  return <div> {cart.map( itemCart => {
+  return <div className="container text-center"> {cart.map( itemCart => {
       return <div key={itemCart.id}>
-        <h4>Producto: {itemCart.title} </h4>
+        
+       <table className="table center">
+  
+  <tbody>
+    <tr>
+      <td scope="col">Producto: {itemCart.title}</td>
+      <td scope="col">Cantidad: {itemCart.cant}</td>
+      <td scope="col">Precio: {itemCart.cant * itemCart.precio}</td>
+      <td scope="col"><button className="btn btn-danger" onClick={()=>removeFromCart(itemCart.id)}>X</button></td>
+
+    </tr>
+  </tbody>
+
+</table>
+        {/* <h4>Producto: {itemCart.title} </h4>
         <h4>Cantidad: {itemCart.cant} </h4>
         <h4>Precio: {itemCart.cant * itemCart.precio}</h4>
-        <button className="btn btn-danger" onClick={()=>removeFromCart(itemCart.id)}>X</button>
+        <button className="btn btn-danger" onClick={()=>removeFromCart(itemCart.id)}>X</button> */}
         </div>
       
      })}

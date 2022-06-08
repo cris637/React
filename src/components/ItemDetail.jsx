@@ -41,7 +41,7 @@ const ItemDetail = ({ prenda }) => {
   };
 
   const cardImg = {
-    width: "300px",
+    width: "250px",
   };
 
   return (

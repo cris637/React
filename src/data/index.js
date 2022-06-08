@@ -1,5 +1,7 @@
 import swal from 'sweetalert';
 
+
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {
@@ -45,6 +47,9 @@ export async function getAllItems() {
   });
 }
 
+
+
+
 export async function getItemsByTalle(categoryId) {
   const miColection = collection(firestoreDB, "topindumentaria");
   const queryRopa = query(miColection, where("talle", "==", categoryId));
@@ -79,6 +84,7 @@ export async function createBuyOrder(orderData) {
    const orderDoc = await addDoc(miColection, orderWithDate)
   console.log("Orden lista con ID:", orderDoc.id);
   swal("Gracias por su compra, este es el ID de su pedido:", orderDoc.id,"success");
+  
 
   
 }

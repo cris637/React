@@ -1,7 +1,11 @@
 nav {
     display: inline-block;
     font-size: 30px;
+    
 
+}
+nav img {
+    width: 20%;
 }
 ul {
     list-style: none;
@@ -14,7 +18,8 @@ li {
     margin: auto;
 }
 li img {
-    width: 60px;
+    width: 50px;
+    
 }
 li a {
     text-decoration: none;
@@ -25,5 +30,6 @@ li a {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
 }
